@@ -1,0 +1,17 @@
+.header-container{
+    background-color: #606c38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 8vh;
+}
+
+.link-header {
+    margin: 1em;
+    transition: all 0.5s;
+}
+
+.link-header:hover {
+    border-bottom: 2px solid black;
+}

@@ -1,0 +1,9 @@
+.App{
+  background-color: #283618;
+  color: #fefae0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
