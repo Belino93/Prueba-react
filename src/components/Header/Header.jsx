@@ -7,6 +7,7 @@ function Header() {
     <div className='header-container'>
         <div className='link-header' onClick={() => wander('/')}>Home</div>
         <div className='link-header' onClick={() => wander('/characters')}>Characters</div>
+        <div className='link-header' onClick={() => wander('/register')}>Register</div>
     </div>
   )
 }
