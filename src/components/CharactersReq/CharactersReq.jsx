@@ -1,36 +1,45 @@
-import axios from "axios";
+import {bringCharacters} from '../../services/apiCall'
 import { useState, useEffect } from "react";
-import CharacterCard from "../CharacterCard/CharacterCard";
-import './CharactersReq.css'
+import "./CharactersReq.css";
+import { useSelector, useDispatch } from "react-redux";
+import {addCharacter} from './characterSlice';
+import { useNavigate } from "react-router-dom";
 
 function CharactersReq() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  //Hooks
   const [characters, setCharacters] = useState([]);
 
- 
+  useEffect(() => {
 
-  const getCharacters = async () => {
-    const resp = await axios.get("https://rickandmortyapi.com/api/character");
-    const data = resp.data.results;
-    setCharacters(data)
-  };
+    if (characters.length === 0) {
+        bringCharacters()
+          .then((characters) => {
+            setCharacters(characters)
+          })
+    }
+  }, []);
 
-  
 
-  if (characters.length === 0) {
-    return (
-      <div className="container-empty">
-        <h1>Any characters</h1>
-        <button onClick={getCharacters}>Get characters</button>
-      </div>
-    );
+  // Handlers
+  const clikedCharacter = (character) => {
+    dispatch(addCharacter({...character, details: character}))
+
+    setTimeout(() => {
+      navigate('/characterDetails')
+    })
   }
 
   return (
     <div className="container">
-        {characters.map((c) => 
-            <CharacterCard key={c.id} character={c}/>
-        )}
-      
+      {characters.map((c) => (
+        <div key={c.id} className="card" onClick={() => clikedCharacter(c)}>
+        <img className="card-img" src={c.image} />
+        <p className="card-name">{c.name}</p>
+        </div>
+      ))}
     </div>
   );
 }

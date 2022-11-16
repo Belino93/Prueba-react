@@ -1,0 +1,27 @@
+.detail-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 2em;
+    height: 82vh;    
+}
+
+.detail-container-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+.detail-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail-card-name {
+    
+}

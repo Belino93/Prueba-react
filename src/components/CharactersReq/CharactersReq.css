@@ -9,3 +9,35 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
+  .card{
+    margin: 1em;
+    justify-content: center;
+    align-items: center;
+    color: #ffb703;
+    text-align: center;
+    border: 1.5px solid #ffb703;
+}
+
+.card-img{
+    width: 10em;
+    height: 10em;
+    transition: width 0.5s, height 0.5s;
+}
+
+.card,.card-img{
+    border-radius: 10%;
+}
+
+.card-img:hover{
+    width: 13em;
+    height: 13em;
+}
+
+.card-name{
+    inline-size: 10em;
+    color: #ffb703;
+    text-decoration: none;
+}
+
+

@@ -1,6 +1,6 @@
 import "./Register.css";
 import { useState } from "react";
-import { errorCheck } from '../../services/inputUseful'
+import { errorCheck } from '../../../services/inputUseful'
 
 function Register() {
 
