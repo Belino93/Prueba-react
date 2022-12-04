@@ -4,6 +4,7 @@ import "./CharactersReq.css";
 import { useSelector, useDispatch } from "react-redux";
 import {addCharacter} from './characterSlice';
 import { useNavigate } from "react-router-dom";
+import { Spinner } from 'react-bootstrap';
 
 function CharactersReq() {
   const dispatch = useDispatch();
@@ -13,12 +14,14 @@ function CharactersReq() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-
+    
     if (characters.length === 0) {
+      setTimeout(() => {
         bringCharacters()
           .then((characters) => {
             setCharacters(characters)
           })
+      }, 1500)
     }
   }, []);
 
@@ -31,7 +34,7 @@ function CharactersReq() {
       navigate('/characterDetails')
     })
   }
-
+  if(characters.length > 0){
   return (
     <div className="container">
       {characters.map((c) => (
@@ -42,6 +45,15 @@ function CharactersReq() {
       ))}
     </div>
   );
+}else{
+  return(
+    <div>
+      <Spinner animation="border" variant="primary" />
+    </div>
+  )
 }
+
+}
+
 
 export default CharactersReq;
